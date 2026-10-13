@@ -18,7 +18,7 @@ echo "Log history contains $(wc -l $logfile | cut -d' ' -f1) lines."
 
 # Filter the log to remove queries coming from bots
 logfile_nobot=/tmp/access_log_nobot
-cat $logfile | grep --file=$useragents_list --invert-match > $logfile_nobot
+cat $logfile | grep -F --file=$useragents_list --invert-match > $logfile_nobot
 echo "Filtered log contains $(wc -l $logfile_nobot | cut -d' ' -f1) lines."
 
 
